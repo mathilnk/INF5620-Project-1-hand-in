@@ -1,0 +1,40 @@
+\section{Initial condition}
+
+If we take a look at eq.(\ref{}) we can see that we are going to get a problem with $u_{i,j}^{n-1}$ in our first time step.
+We can solve this by looking at our initial condition.
+If we assume that the velocity at $t = 0$ is zero, $u'(x,y,0) = 0$ then we get
+
+\begin{equation}
+ \frac{\partial u}{\partial t} = 0 \rightarrow [D_t u]_{i,j}^n = V(x,y)
+\end{equation}
+
+\begin{equation}
+ \frac{u_{i,j}^{n+1} - u_{i,j}^{n-1}}{2 \Delta t} = V(x,y)
+\end{equation}
+
+For $t = 0 \rightarrow n = 0$ we get 
+
+\begin{align}
+ \frac{u_{i,j}^{1} - u_{i,j}^{-1}}{2 \Delta t} &= V(x,y) \\
+ & u_{i,j}^{1} = u_{i,j}^{-1} + 2 V(x,y)\Delta t \\
+ & u_{i,j}^{-1} = u_{i,j}^{1} - 2 V(x,y)\Delta t
+\end{align}
+
+
+This solves our problem. If we now use $n = 0$ in eq.(\ref{}) we get
+
+\begin{align*}
+  u^{1}_{i,j}\left( 1 + \frac{b\Delta t}{2} \right)  =\\
+  &\frac{\Delta t^2}{2\Delta x^2} \left( \left( q(x,y)_{i + 1,j}^0+ q(x,y)_{i,j}^0 \right) \left( u_{i+1,j}^0 - u_{i,j}^0 \right) - \left( q(x,y)_{i,j}^0 + q(x,y)_{i - 1,j}^0 \right) \left( u_{i,j}^0 - u_{i-1,j}^0\right) \right) \\
+  &+ \frac{\Delta t^2}{2\Delta y^2} \left( \left( q(x,y)_{i,j + 1}^0 + q(x,y)_{i,j}^0 \right) \left( u_{i,j+1}^0 - u_{i,j}^0 \right) - \left( q(x,y)_{i,j}^0 + q(x,y)_{i,j-1}^0 \right) \left( u_{i,j}^0 - u_{i,j-1}^0 \right) \right) \\
+  &+ \Delta t^2 f(x,y,t)_{i,j}^0 + 2u^{0}_{i,j} + u^{-1}_{i,j} \left(\frac{b\Delta t}{2} - 1 \right)
+\end{align*}
+
+If we now use $u_{i,j}^{1} = u_{i,j}^{-1}$ we get
+
+\begin{align*}
+  u^{1}_{i,j} =\\
+  &\frac{\Delta t^2}{4\Delta x^2} \left( \left( q(x,y)_{i + 1,j}^0+ q(x,y)_{i,j}^0 \right) \left( u_{i+1,j}^0 - u_{i,j}^0 \right) - \left( q(x,y)_{i,j}^0 + q(x,y)_{i - 1,j}^0 \right) \left( u_{i,j}^0 - u_{i-1,j}^0\right) \right) \\
+  &+ \frac{\Delta t^2}{4\Delta y^2} \left( \left( q(x,y)_{i,j + 1}^0 + q(x,y)_{i,j}^0 \right) \left( u_{i,j+1}^0 - u_{i,j}^0 \right) - \left( q(x,y)_{i,j}^0 + q(x,y)_{i,j-1}^0 \right) \left( u_{i,j}^0 - u_{i,j-1}^0 \right) \right) \\
+  &+ \frac{\Delta t^2}{2} f(x,y,t)_{i,j}^0 + u^{0}_{i,j} - V(x,y)\Delta t \left(\frac{b\Delta t}{2} - 1 \right)
+\end{align*}

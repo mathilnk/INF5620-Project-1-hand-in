@@ -1,0 +1,8 @@
+\section{Boundary condition}
+
+We have been given the boundary condition $\frac{\partial u}{\partial \eta} = 0$
+
+\begin{equation}
+  \frac{\partial u}{\partial \eta} = 0 \\
+  \rightarrow \left[ D_{2x}u \right]_{i,j}^{n} = \frac{u_{i+1,j}^n - u_{i-1,j}^n }{2 \Delta x}
+\end{equation}
