@@ -42,7 +42,7 @@ def zero(x,y):
 
 class wave_2d:
 
-    def __init__(self,w, mx, my, Lx, Ly, T, Nx, Ny, dt, b = 0,I_f=None, V_f=V_f_glob, q_f=q_f_glob, f_f=f_f_glob,exact=None, gauss=False, standing=False,plug=False,constant =False):
+    def __init__(self,Lx, Ly, T, Nx, Ny, dt, b = 0,I_f=None, V_f=V_f_glob, q_f=q_f_glob, f_f=f_f_glob,exact=None, gauss=False, standing=False,plug=False,constant =False):
         """
         I_f is the initial state-function, x,y
         V_f is the initial velocity-function, x,y
@@ -68,9 +68,9 @@ class wave_2d:
             self.V_f = self.standing_V
             self.q_f = q_f
             self.exact = self.standing_exact
-            #self.w = 3.777775
-            #self.mx = 5.0355555
-            #self.my = 5.0355555
+            self.w = 3.777775
+            self.mx = 5.0355555
+            self.my = 5.0355555
             self.standing = standing
         elif(plug):
         	self.I_f = plog
@@ -89,12 +89,17 @@ class wave_2d:
         self.dt = dt
         self.b = b
         self.f_f = f_f
+        """
         self.w = w
         self.mx = mx
         self.my = my
+        """
+        
+        """
         a = open("w_mx_my.txt", "a")
         a.write("%.10f  %.10f\n" %(w,mx))
         a.close()
+        """
         #print "w = ", w, " mx = my = ", mx 
         self.x = linspace(0,Lx,Nx+1)
         self.y = linspace(0,Ly,Ny+1)
@@ -189,7 +194,7 @@ class wave_2d:
 				for p in xrange(1,self.Ny-1):
 					f[o,p] = 0.1*self.gauss_rain(self.X[o,p],self.Y[o,p],x0,y0,sigma_x,sigma_y);
 		return f 
-	'''	
+    '''	
 
     def solve_num(self):
         Nx = self.Nx
@@ -219,12 +224,13 @@ class wave_2d:
         #rint "q = ", q
         up[1:-1,1:-1] = I[1:-1,1:-1].copy()
 
-        #savetxt('u0.txt',up[1:-1,1:-1])
-        '''
+        savetxt('u0.txt',up[1:-1,1:-1])
+        print "hei"
+        """
         if self.standing:
             savetxt('u0_e.txt',up[1:-1,1:-1])
-        else:
-        '''    
+        """
+           
 
         up[0,:] = up[2,:]
         up[:,0] = up[:,2]
@@ -276,22 +282,26 @@ class wave_2d:
             u[-1][0] = u[-3][2]
             u_e = self.standing_exact(X,Y,t[k])
             err[k] = sqrt(sum((u_e-u)**2)/(Nx*Ny))
-            '''
-            if (k+1)%3 == 0 and self.standing:
+            
+            if (k+1)%3 == 0:    # and self.standing:
                 #savetxt('u%.4d.txt'%k,u[1:-1,1:-1])
                 #savetxt('u_e%.4d.txt'%k,u_e[1:-1,1:-1])
                 #savetxt('texttmp%.4d.txt'%k, u_e[1:-1,1:-1]-u[1:-1,1:-1])
                 #savetxt('texttmp%.4d.txt'%k,u_e[1:-1,1:-1])
-                #savetxt('texttmp%.4d.txt'%k,u[1:-1,1:-1])
+                savetxt('texttmp%.4d.txt'%k,u[1:-1,1:-1])
+            """
             elif (k+1)%3 ==0 and not self.standing:
                 savetxt('texttmp%.4d.txt'%k,u[1:-1,1:-1])
-            '''
+            """
+            
             upp = up.copy()
             up = u.copy()
         #err = sqrt((sum(u_e[1:-1,1:-1]-u[1:-1,1:-1])**2)/(Nx*Ny))
+        """
         a = open("max(err).txt", "a")
         a.write("%.10f\n" %max(err))
         a.close()
+        """
         #print "error: ", max(err)
 	
 
@@ -334,7 +344,7 @@ elif args.dt != None:
     Ny = int(Ly/dy) + 1
     dt = args.dt
     c = 1.#sqrt(2)
-#print "Nx = ", Nx, "Ny = ", Ny, "dx = ",dx, "dy = ",dy, "dt = ",dt, "T = ",T
+print "Nx = ", Nx, "Ny = ", Ny, "dx = ",dx, "dy = ",dy, "dt = ",dt, "T = ",T
 #print dt
 #--------Write initial values to file--
 
@@ -346,11 +356,12 @@ outfile.close()
 
 #--------END Write initial values to file--
 
-#w = wave_2d(Ly,Lx,T,Nx,Ny,dt,b,standing=args.standing,gauss=args.gauss,plug=args.plug,constant = args.constant,q_f=ground)
+w = wave_2d(Ly,Lx,T,Nx,Ny,dt,b,standing=args.standing,gauss=args.gauss,plug=args.plug,constant = args.constant,q_f=ground)
 #w = wave_2d(Ly,Lx,T,Nx,Ny,dt,b,standing=args.standing,gauss=args.gauss,plug=args.plug,constant = args.constant)
 #w.plot_exact()
-#w.solve_num()
+w.solve_num()
 counter = 0
+"""
 for i in range(0,1000):
     for j in range(0,1000):
         counter += 1
@@ -360,6 +371,7 @@ for i in range(0,1000):
         my = mx
         w = wave_2d(w,mx,my,Ly,Lx,T,Nx,Ny,dt,b,standing=args.standing,gauss=args.gauss,plug=args.plug,constant = args.constant)
         w.solve_num()
+"""
 
 if args.movie and not args.remove:
 	#must install xvfb to run this
