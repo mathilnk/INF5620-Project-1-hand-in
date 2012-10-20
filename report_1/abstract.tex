@@ -1,0 +1,22 @@
+\section{Abstract}
+The project addresses the two-dimensional, standard, linear wave equation, with damping.
+\begin{equation}
+ \frac{\partial^2 u}{\partial t^2} + b\frac{\partial u}{\partial t} = \frac{\partial}{\partial x} \left( q(x,y)\frac{\partial u}{\partial x} \right)
+ + \frac{\partial}{\partial y} \left( q(x,y)\frac{\partial u}{\partial y} \right) + f(x,y,t)
+ \label{wave_eq}
+\end{equation}
+We have solved this wave equation by the finite difference method. First we implemented the problem by scalar computation to get a working program, 
+and when we were pretty sure our program worked we vectorized the problem for speed. We had three tests we could run to verify our code; we contructed a test case with constant solution,
+we made an exact 1D solution (plug wave) and we manufactured a standing wave. The latter test does not give an exact solution of the discrete equations, so we had to do an
+empirical analysis of the convergence. The expected error to the standing wave is 
+\begin{equation}
+ E = Ch^2
+\end{equation}
+where C s a constant chosen to be compatible with the stability criterion, and h is a common discretization parameter to be varied.\\
+We used mayavi to visualize the 2D solution in 3D-plots.\\
+The program can be used to simulate waves on water, and we chose to do this while looking at different sea-bottom shapes. We experimented a little as well,
+and ended up with a simulation of rain on a pond. The rain was made by letting the source term be a Gauss-function with random position and size. 
+
+
+
+
