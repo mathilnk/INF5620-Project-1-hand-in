@@ -9,4 +9,5 @@
 *.bak
 wtmp*
 textt*
+*.txt
 

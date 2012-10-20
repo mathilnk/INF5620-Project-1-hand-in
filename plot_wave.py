@@ -39,8 +39,9 @@ mlab.figure()
 #mlab.view(50, -100)
 mlab.options.offscreen = True
 X,Y = meshgrid(linspace(0,Lx,Nx),linspace(0,Ly,Ny))
-#s = mlab.mesh(X, Y, u0, color=(0.0,0.75,1.0))
-#mlab.savefig("wtmp0000.png")
+s = mlab.mesh(X, Y, u0, color=(0.0,0.75,1.0))
+mlab.savefig("wtmp0000.png")
+mlab.clf()
 for matrix in sorted_files:
 	f = open(matrix,'r');l=[]
 	l = [ map(float,line.split()) for line in f ]
@@ -56,7 +57,7 @@ for matrix in sorted_files:
 	print"picture %d out of %d done" %(i, length)
 
 print "Making movie!"
-movie("wtmp*.png")
+movie("wtmp*.png", encoder='convert', fps=25, output_file='movie.gif')
 '''
 if args.rm:
 	time.sleep(1)
