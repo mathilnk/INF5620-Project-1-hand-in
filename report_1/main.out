@@ -2,7 +2,11 @@
 \BOOKMARK [1][-]{section.2}{mathematical problem}{}
 \BOOKMARK [1][-]{section.3}{Boundary condition}{}
 \BOOKMARK [1][-]{section.4}{Initial condition}{}
-\BOOKMARK [1][-]{section.5}{Stability criterion}{}
-\BOOKMARK [1][-]{section.6}{Manufactured solutions}{}
-\BOOKMARK [2][-]{subsection.6.1}{Exact 1D solution}{section.6}
-\BOOKMARK [2][-]{subsection.6.2}{Standing wave}{section.6}
+\BOOKMARK [1][-]{section.5}{Manufactured solutions}{}
+\BOOKMARK [2][-]{subsection.5.1}{Exact 1D solution}{section.5}
+\BOOKMARK [2][-]{subsection.5.2}{Standing wave}{section.5}
+\BOOKMARK [1][-]{section.6}{Effect of various hill shapes}{}
+\BOOKMARK [2][-]{subsection.6.1}{The beach}{section.6}
+\BOOKMARK [2][-]{subsection.6.2}{The mountain}{section.6}
+\BOOKMARK [2][-]{subsection.6.3}{The box}{section.6}
+\BOOKMARK [1][-]{section.7}{Rain on a pond}{}
