@@ -21,4 +21,6 @@ for hjørnene og så se at teknikken med ghost-render gir samme oppdatering.
 
 Sett strek her for denne oppgaven. Debuggingen kan ta lang tid...
 
+Men veldig bra visualisering med mayavi!!
+
 Hans Petter
