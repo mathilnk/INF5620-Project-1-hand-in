@@ -12,12 +12,14 @@ hatt større grid. Men mulig dere har noe problemer i hjørnene og da
 ville symmetriteknikken antakelig ikke virket. Det er litt rart at det
 ikke blir mer støy rundt bølger over en boks.
 
-Litt mye rot i katalogen. Var ikke så enkelt å finne ut hva de forskjellige
-.py filene var. Litt mye rot inne i filene også, men dere har vel vært
-i testmodus lenge... Jeg stusset litt over ghost-punktene i hjørnene - tror
-den oppdateringen blir feil og at det holder å ta hver side av domenet.
-Egentlig må man sette seg ned med det skjemaet der vi har egne formler
-for hjørnene og så se at teknikken med ghost-render gir samme oppdatering.
+Litt mye rot i katalogen. Var ikke så enkelt å finne ut hva de
+forskjellige .py filene var - inntil jeg faktisk leste mailen fra
+Mathilde.  Litt mye rot inne i filene også, men dere har vel vært i
+testmodus lenge... Jeg stusset litt over ghost-punktene i hjørnene -
+tror den oppdateringen blir feil og at det holder å ta hver side av
+domenet.  Egentlig må man sette seg ned med det skjemaet der vi har
+egne formler for hjørnene og så se at teknikken med ghost-render gir
+samme oppdatering.
 
 Sett strek her for denne oppgaven. Debuggingen kan ta lang tid...
 
