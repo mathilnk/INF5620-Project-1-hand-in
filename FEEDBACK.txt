@@ -1,0 +1,24 @@
+Hei,
+
+Jeg har lest rapporten og sett på programmene. Dere har fått med dere
+alt det viktigste rundt metoden. Det er klart at noe er feil med
+testingen eller programmet, men det viktigste er at dere har satt
+opp en tilsynelatende riktig test og gjennomført den. Programmet
+er riktig nok til at utvidelsen med å se på ulike bølgeformer kan
+gjøres. For å få mer realistiske simuleringer kunne dere utnyttet
+symmetri når randbetingelsen er du/dn=0. Ved å plassere Gauss-klokken
+i hjørnet av domenet og simulere 1/4 av det dere har nå, ville dere
+hatt større grid. Men mulig dere har noe problemer i hjørnene og da
+ville symmetriteknikken antakelig ikke virket. Det er litt rart at det
+ikke blir mer støy rundt bølger over en boks.
+
+Litt mye rot i katalogen. Var ikke så enkelt å finne ut hva de forskjellige
+.py filene var. Litt mye rot inne i filene også, men dere har vel vært
+i testmodus lenge... Jeg stusset litt over ghost-punktene i hjørnene - tror
+den oppdateringen blir feil og at det holder å ta hver side av domenet.
+Egentlig må man sette seg ned med det skjemaet der vi har egne formler
+for hjørnene og så se at teknikken med ghost-render gir samme oppdatering.
+
+Sett strek her for denne oppgaven. Debuggingen kan ta lang tid...
+
+Hans Petter
